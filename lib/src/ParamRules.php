@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php';
+namespace Validator;
 
 /**
  * @Annotation
@@ -78,32 +78,9 @@ class ParamRules
         return true;
         return $this->request->has($param) || isset($_FILES[$param]);
     }
-}
 
-class AnnotationDemo
-{
-    /**
-     * @ParamRules(
-     *  int64={"type": "int64", "min": 1000, "max": 9999, "required": true},
-     *  string={"type": "string", "min": 1, "max": 200, "required": true},
-     *  enum={"type": "enum", "domain":"1,2", "required": true},
-     *  url={"type": "url", "required": true},
-     *  email={"type": "email", "required": true},
-     *  array={"type": "array", "min": 1, "max": 200, "required": true},
-     *  datetime={"type": "datetime", "format":"Y-m-d H:i:s", "required": true},
-     *  binary={"type": "binary", "required": true},
-     *  image={"type": "image", "required": true},
-     *  audio={"type": "audio", "required": true},
-     * )
-     */
-    public function getProperty()
+    public static function test()
     {
-        return $this->property;
+        echo 1;die;
     }
 }
-use Doctrine\Common\Annotations\AnnotationReader;
-
-$reader = new AnnotationReader();
-$reflectionClass = new ReflectionClass('AnnotationDemo');
-$result = $reader->getMethodAnnotations($reflectionClass->getMethod('getProperty'));
-var_dump($result);
