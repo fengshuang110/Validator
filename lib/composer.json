@@ -1,0 +1,10 @@
+{
+  "name": "fengshuang/validator",
+  "license": "MIT",
+  "description": "VALIDATION SDK",
+  "autoload": {
+    "psr-4": {
+      "Validator\\": "src/"
+    }
+  }
+}
